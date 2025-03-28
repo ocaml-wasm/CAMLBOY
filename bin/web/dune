@@ -1,8 +1,12 @@
 (executables
- (names index bench)
- (libraries brr bigstringaf js_of_ocaml-lwt camlboy_lib)
+ (names index bench bench_node)
+ (libraries brr bigstringaf camlboy_lib)
  (link_flags (:standard -no-check-prims))
- (modes wasm))
+ (wasm_of_ocaml
+  (flags :standard --opt 2))
+ (js_of_ocaml
+  (flags :standard --opt 2))
+ (modes wasm js))
 
 (alias
  (name all)
